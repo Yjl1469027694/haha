@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // // ### 题1. 求圆面积、周长、体积。
+      // // 输入半径，高，求圆柱体的面积，和体积，把体积、面积返回给函数调用者，
+      // // 然后由调用者输出面积和体积大小。
+      // var S, C, V;
+      // var pai = 3.14;
+      // var r = parseInt(prompt('求圆面积、周长、体积。\n请输入圆的半径:'));
+      // var h = parseInt(prompt('请输入圆的高：'));
+      // var mianJi = function (r, h) {
+      //   let C, S;
+      //   C = 2 * pai * r;
+      //   S = pai * r * r * 2 + C * h;
+      //   return S;
+      // };
+      // var tiJi = function (r, h) {
+      //   let V;
+      //   V = pai * r * r * h;
+      //   return V;
+      // };
+      // S = mianJi(r, h);
+      // console.log('圆柱体的表面积：' + S);
+      // V = tiJi(r, h);
+      // console.log('圆柱体的体积：' + V);
+      // // ### 题2. 输入2个日期 （年月日），计算两个日期相差多少天？
+      // var isRun = function (y) {
+      //   if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0) {
+      //     return true;
+      //   } else {
+      //     return false;
+      //   }
+      // };
+      // var qiuTianShu = function (y, m, d) {
+      //   var num = 0;
+      //   var a = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30];
+      //   for (var i = 0; i < m - 1; i++) {
+      //     num += a[i];
+      //   }
+      //   num += d;
+      //   if (isRun(y)) {
+      //     // 闰年
+      //     if (m > 2) {
+      //       num++;
+      //     }
+      //   } else {
+      //     // 平年
+      //     return num;
+      //   }
+      //   return num;
+      // };
+      // // n = qiuTianShu(y, m, d);
+      // // console.log('这是' + y + '年的第' + n + '天');
+
+      // var y = parseInt(prompt('输入第一个日期的年份：'));
+      // var m = parseInt(prompt('输入第一个日期的月份：'));
+      // var d = parseInt(prompt('输入第一个日期的日份：'));
+      // var y2 = parseInt(prompt('输入第二个日期的年份：'));
+      // var m2 = parseInt(prompt('输入第二个日期的月份：'));
+      // var d2 = parseInt(prompt('输入第二个日期的日份：'));
+      // var sum = 0; //总天数
+      // var flag = 0; //标记两个日期之间的整年是平年还是闰年
+      // var num1 = 0; //第一个日期的剩余天数
+      // var num2 = 0; //第二个日期的第几天
+      // // 先输入的日期靠前
+      // if (y2 > y) {
+      //   for (var i = y2 - 1; i > y; i--) {
+      //     if (isRun(i)) {
+      //       flag = 366;
+      //     } else {
+      //       flag = 365;
+      //     }
+      //     sum += flag; //两个日期之间的整年天数之和
+      //   }
+      //   if (isRun(y)) {
+      //     num1 = 366 - qiuTianShu(y, m, d);
+      //   } else {
+      //     num1 = 365 - qiuTianShu(y, m, d);
+      //   }
+
+      //   num2 = qiuTianShu(y2, m2, d2);
+      //   sum = sum + num1 + num2;
+      // } else if (y2 == y) {
+      //   //年份相等的情况
+      //   sum = Math.abs(qiuTianShu(y2, m2, d2) - qiuTianShu(y, m, d));
+      // }
+      // // 先输入的日期靠后
+      // else {
+      //   for (var i = y - 1; i > y2; i--) {
+      //     if (isRun(i)) {
+      //       flag = 366;
+      //     } else {
+      //       flag = 365;
+      //     }
+      //     sum += flag;
+      //   }
+      //   if (isRun(y2)) {
+      //     num1 = 366 - qiuTianShu(y2, m2, d2);
+      //   } else {
+      //     num1 = 365 - qiuTianShu(y2, m2, d2);
+      //   }
+
+      //   num2 = qiuTianShu(y, m, d);
+      //   sum = sum + num1 + num2;
+      // }
+      // document.write('两个日期之间相距' + sum + '天ლ(′◉❥◉｀ლ)');
+      // ### 题3. 编写函数has(arr , 60) 判断数组中是否存在60这个元素，返回布尔类型。
+      // var arr = [1, 23, 235, 436, 6457, 5];
+      // var has = function (arr, h) {
+      //   for (var i = 0; i < arr.length; i++) {
+      //     if (arr[i] == h) {
+      //       return true;
+      //     }
+      //   }
+      //   return false;
+      // };
+      // console.log(has(arr, 60));
+
+      // ### 题4. 抽奖
+      // 假设某次抽奖活动，奖品概率设置如下：
+      // 登山包：0.01
+      // 旅行箱：0.03
+      // 移动电源：0.06
+      // 不中奖（也看成是一种奖品）：0.9
+      var arr = ['登山包', '旅行箱', '移动电源', '不中奖'];
+      var index = parseInt(arr.length * myRan());
+      var b = arr[index];
+      function myRan() {
+        var p = Math.random();
+        if (p < 0.01) return 0 + p / 4;
+        if (p < 0.04) return 0.25 + p / 4;
+        if (p < 0.1) return 0.5 + p / 4;
+        if (p < 1) return 0.75 + p / 4;
+      }
+      console.log(b);
+    </script>
+  </body>
+</html>

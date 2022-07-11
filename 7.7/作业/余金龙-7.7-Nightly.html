@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 创建一个数组,找到数组的最大值
+      var arr1 = [10];
+      var max = 0;
+      for (var i = 0; i < 10; i++) {
+        arr1[i] = parseInt(Math.random() * 100);
+      }
+      console.log(arr1);
+      for (var i = 0; i < 10; i++) {
+        if (arr1[i] >= max) {
+          max = arr1[i];
+        }
+      }
+      console.log(max);
+      // //  <!-- 1.猜数字游戏，有一个0-100随机数 玩家有5次输入的机会猜，
+      // // 每次猜一次，都要将结果告诉玩家是小了，还是大了
+      // // 如果在5次机会内猜中，输出“聪明”，程序结束
+      // // 如果5次机会用完 程序直接结束。 -->
+      var num = parseInt(prompt('猜数字(0~100)\n你有5次机会,请猜:'));
+      var num1 = parseInt(Math.random() * 100);
+      console.log(num1);
+      for (var i = 1; i <= 4; i++) {
+        if (num1 == num) {
+          alert('恭喜你，猜中了(#^.^#),聪明啊');
+          break;
+        } else if (num1 < num) {
+          num = parseInt(
+            prompt('大了，不好意思，请继续^_^,你还有' + (5 - i) + '次机会哦')
+          );
+        } else {
+          num = parseInt(
+            prompt('小了，不好意思，请继续^_^,你还有' + (5 - i) + '次机会哦')
+          );
+        }
+      }
+      if (i == 5) {
+        alert('很遗憾，回家洗洗睡吧！');
+      }
+      // 2. 有一个4个长度的数组，每个位置装有0-9之间的随机数字，
+      // 有10次输入的机会来猜每个位置的上的数是什么，
+      // 每次猜完4个数字以后都要给出提示，正确几个 错误几个，
+      // 只有位置和数字完全正确才算正确，其他情况全视为错误。
+      var arr2 = new Array(4);
+      alert('你接下来有10次输入的机会来猜每个位置的上的数是什么╭(╯^╰)╮');
+      for (var i = 0; i < 4; i++) {
+        arr2[i] = parseInt(Math.random() * 9);
+      }
+      console.log('arr2:' + arr2);
+      for (var j = 0; j < 10; j++) {
+        var arr3 = [];
+        var t = 0;
+        for (var k = 0; k < 4; k++) {
+          arr3[k] = parseInt(prompt('请输入第' + (k + 1) + '个数：'));
+          if (arr2[k] == arr3[k]) {
+            t++;
+          }
+        }
+        if (t == 4) {
+          alert('大大的恭喜(ˉ▽￣～) 切~~，正确咯~');
+          break;
+        }
+        alert('正确的个数为' + t + '\t错误的个数为' + (4 - t));
+      }
+      // 3 去掉数组中重复的元素
+      // var arr = [1,2,3,4,5,2,3,4,2,23,4,5,2,2,3,54,3,3,4]  使数组的每一项都
+      // 不一样
+      var arr = [1, 2, 3, 4, 5, 2, 3, 4, 2, 23, 4, 5, 2, 2, 3, 54, 3, 3, 4];
+      // var l=arr.length;//arr.length会变化不应该在外边设置他的一个替换变量
+      for (var i = 0; i < arr.length; i++) {
+        var t = arr[i]; //设置临时的变量存储数组的每一项
+        for (var j = i + 1; j < arr.length; ) {
+          //判断第i项得值与它后面每一项的值是否重复
+          if (t == arr[j]) {
+            arr.splice(j, 1); //如果重复了持续删除a[j]的值,否则j++对剩下的
+          } else {
+            j++;
+          }
+        }
+      }
+      console.log(arr);
+      // 4 根据双色球摇奖规则，产生6个红球1个蓝球；红球范围1-33， 蓝球范围1-16.
+      // 红球不能有重复的产生。
+      // 思路：每次产生一个随机球，存入数组中，下一次产生的随机球，要和数组中的进行比较，
+      // 如果有相等的，
+      // 则重新产生一个号（循环变量要减1），反之继续存入数组；直到产生6个球；蓝球单独产生；
+      // 最后输出所有球。
+      var red = [];
+      var blue = parseInt(Math.random() * 16 + 1);
+      for (var i = 0; i < 6; i++) {
+        red[i] = parseInt(Math.random() * 33 + 1); //先将红球数组依次赋随机值
+        var j;
+        for (j = 0; j < i; j++) {
+          //判断第i个球的随机值是否与之前的球的值重复
+          if (red[j] == red[i]) {
+            //如果有重复就i--,这样就又会给这个a[i]赋随机值
+            i--;
+          }
+        }
+      }
+      console.log(red);
+      console.log(blue);
+      // 5 从小到大排序
+      // var arr = [1,2,3,4,5,2,3,4,2,23,4,5,2,2,3,54,3,3,4]  使数组的每一项都
+      // 不一样
+      var a = [1, 2, 3, 4, 5, 2, 3, 4, 2, 23, 4, 5, 2, 2, 3, 54, 3, 3, 4];
+      var t;
+      for (var i = 0; i < a.length; i++) {
+        for (var j = 0; j < i; j++) {
+          if (a[j] > a[i]) {
+            t = a[j];
+            a[j] = a[i];
+            a[i] = t;
+          }
+        }
+      }
+      console.log('从小到大排序：' + a);
+    </script>
+  </body>
+</html>

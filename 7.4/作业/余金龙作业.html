@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1 用代码实现
+      // 变量a中存储的数字10，变量b中存储的数字是3
+      var a = 10;
+      var b = 3;
+      var ab = parseInt(a / b);
+      console.log(ab);
+      console.log(ab + '');
+      // ab.toString()
+      console.log(typeof (ab + ''));
+      // 2 用代码实现
+      // 输入一数字作为秒数，在页面按小时，分钟，秒的格式输出（ 如输入600，页面显示：0小时10分0秒 ）
+      var num = prompt('请输入一个多少秒：');
+      var num1 = parseInt(num);
+      var d = parseInt(num / 3600 / 24);
+      var h = parseInt((num % 86400) / 3600);
+      var m = parseInt((num % 3600) / 60);
+      var s = num % 60;
+      alert(d + '天' + h + '小时' + m + '分' + s + '秒');
+      /* 3 用三元运算符实现
+      1）小明和妈妈约定，期末考试如果语文数学成绩都是满分100，周末妈妈就带他去游乐园，否则就只有在家改错题
+
+      2）小明考了双百分，妈妈周末带小明去游乐园玩了一天，随后和小明约定，如果明年小明
+      还能拿到双百分并且奥数能够获得华杯赛前90名就带他去迪斯尼乐园，否则就只有后年再努力了 */
+      var math = parseInt(window.prompt('请输入数学成绩：'));
+      var chinese = parseInt(window.prompt('请输入语文成绩：'));
+      math == 100 && chinese == 100
+        ? console.log('去游乐园玩')
+        : console.log('在家改作业');
+      // console.log(NaN == NaN);
+      var aoShu = parseInt(window.prompt('请输入华杯赛排名：'));
+      math == 100 && chinese == 100 && aoShu < 90
+        ? console.log('去迪士尼玩')
+        : console.log('后年继续努力');
+      /* 4 计算以下结果
+      var a = (10 * 3 - 4 / 2 + 1) % 2, // a = 1
+　　   b = 3;
+      b %= a + 3; // b = b % (a + 3)=3
+      console.log(a++);
+
+      console.log(--b); */
+      var a = 1;
+      var b = 3;
+      a = (10 * 3 - 4 / 2 + 1) % 2; // a = 1  b = 3;
+      b %= a + 3; // b = b % (a + 3)=3
+      console.log(a++); //1
+      console.log(--b); //2
+      // 5 var a = 123; var b = 234; 要求交换 a 和 b 的值。
+      var a = 123;
+      var b = 234;
+      console.log('a:' + a + ',b:' + b);
+      var c;
+      c = a;
+      a = b;
+      b = c;
+      console.log('a:' + a + ',b:' + b);
+    </script>
+  </body>
+</html>

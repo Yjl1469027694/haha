@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 编程三大结构
+      // 1.顺序结构 2. 分支结构 3. 循环结构
+      // 顺序结构：语句顺序的执行
+      // 分支结构
+      // 1 单分支 2.双分支 3.多分支
+      //
+      /*     var user = prompt('请输入一个0~6的整数：');
+      var day = '';
+      switch (user) {
+        case '0':
+          day = '一';
+          break;
+        case '1':
+          day = '二';
+          break;
+        case '2':
+          day = '三';
+          break;
+        case '3':
+          day = '四';
+          break;
+        case '4':
+          day = '五';
+          break;
+        case '5':
+          day = '六';
+          break;
+        case '6':
+          day = '天';
+          break;
+        default:
+          console.log('你输入的数字不在0~6之间');
+      }
+      console.log('今天星期' + day);
+      document.write('今天星期' + day);
+      var mood = prompt('输入你的心情(好，很好，差，很差)：');
+      var motional = '';
+      if (mood == '好') {
+        console.log('去玩');
+      } else if (mood == '很好') {
+        console.log('打一把王者荣耀');
+      } else if (mood == '差') {
+        console.log('去钓鱼');
+      } else {
+        console.log('找朋友喝顿酒');
+      }
+      // 嵌套分支
+      var a = 1;
+      var b = 2;
+      var c = 3;
+      if (a > 0) {
+        if (c > 0) {
+          // a>0&&c>0
+        } else {
+          // a>0%%c!>0
+        }
+      } else if (b < 0) {
+        // a!>0&&b<0
+      } else {
+        // a!>0&&b!<0
+      } */
+      // 输入三个数字，输出最大的数字
+      var max = 0;
+      var a = prompt('输入三个数字a,b,c(0~9),请输入数字a:');
+      var b = prompt('请输入数字b:');
+      var c = prompt('请输入数字c:');
+      if (a >= b && a >= c) {
+        if (b >= c) {
+          document.write('最大的组合为：' + a + b + c);
+        } else {
+          document.write('最大的组合为：' + a + c + b);
+        }
+      } else if (b >= c) {
+        max = b;
+        if (a >= c) {
+          document.write('最大的组合为：' + b + a + c);
+        } else {
+          document.write('最大的组合为：' + b + c + a);
+        }
+      } else {
+        if (a >= b) {
+          document.write('最大的组合为：' + c + a + b);
+        } else {
+          document.write('最大的组合为：' + c + b + a);
+        }
+      }
+    </script>
+  </body>
+</html>

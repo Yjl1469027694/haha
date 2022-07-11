@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var account = 1000;
+      var i;
+      for (i = 0; i < 3; i++) {
+        var zhangHao = prompt('请输入你的账号：');
+        var password = prompt('请输入你的密码：');
+        if (zhangHao != 'user') {
+          alert('账号错误,请重新输入账号、密码：');
+        } else if (password != '123456') {
+          alert('密码错误，请重新输入账号、密码');
+        } else {
+          console.log('登陆成功');
+          test();
+          break;
+        }
+      }
+      if (i == 3) {
+        alert('你已经连续输错3次，账号已锁定,亲联系柜台人员办理解锁服务');
+      }
+
+      function test() {
+        var num = parseInt(
+          prompt('请操作 1.取款，2.存款，3.转账，4.查询余额，5.退出系统')
+        );
+        if (num == 1) {
+          let userMoney = parseInt(prompt('请输入你想取款的金额'));
+          if (account < userMoney) {
+            alert('请认真填写，不能骚整');
+            test();
+          } else {
+            account -= userMoney;
+            alert('取款成功');
+            test();
+          }
+        } else if (num == 4) {
+          alert('该用户的余额为' + account + '元');
+          test();
+        } else if (num == 5) {
+          alert('欢迎光临，期待下次相见');
+        }
+      }
+    </script>
+  </body>
+</html>

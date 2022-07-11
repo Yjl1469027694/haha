@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //     1.模拟自动饮料机
+
+      // 要求：
+
+      // 1.当输入0时，模拟自动饮料机停止运行
+
+      // 2.自动饮料机运行的过程中，当输入1-5时候给出对应的饮料(1.可口可乐 2.雪碧 3.鲜橙多 4.冰红茶 5.矿泉水)
+
+      // 输入其他值的时候给出非法操作提示，并提示重新输入
+      // var num = parseInt(
+      //   prompt('<----自动饮料机---->\n1. 请输入指令（1~5）：')
+      // );
+      // switch (num) {
+      //   case 0:
+      //     alert('警告！！！饮料机已停止运行');
+      //     break;
+      //   case 1:
+      //     document.write('可口可乐<br>');
+      //     break;
+      //   case 2:
+      //     document.write('雪碧<br>');
+      //     break;
+      //   case 3:
+      //     document.write('鲜橙多<br>');
+      //     break;
+      //   case 4:
+      //     document.write('冰红茶<br>');
+      //     break;
+      //   case 5:
+      //     document.write('矿泉水<br>');
+      //     break;
+      //   default:
+      //     alert('非法操作，请重新输入');
+      //     break;
+      // }
+      // // 作业2：作业7：水仙花数
+
+      // // 例：水仙花数 153=1*1*1+5*5*5+3*3*3
+      // // 输入一个数，判断是不是水仙花数
+      // var a = parseInt(
+      //   prompt(
+      //     '2. 判断是否为水仙花数，例：水仙花数 153=1*1*1+5*5*5+3*3*3\n请输入一个三位数的数字'
+      //   )
+      // );
+
+      // var bai = parseInt(a / 100);
+      // var shi = parseInt((a % 100) / 10);
+      // var ge = parseInt(a % 10);
+      // if (a == bai * bai * bai + shi * shi * shi + ge * ge * ge) {
+      //   console.log('它是一个水仙花数');
+      // } else {
+      //   console.log('它不是一个水仙花');
+      // }
+
+      // // 作业3：判断三角形
+
+      // // 根据三角形的三条边长(长、中、短三条边)，来判断三角形类型。
+
+      // // 提示：
+
+      // // (1) 一个三角形的边应该都为正数
+
+      // // (2) 一个三角形的边都应该满足三角形条件：两边之和大于第三边
+
+      // // 钝角三角形：任意两边的平方和小于第三边的平方，如：a*a+b*b<c*c
+      // var a = parseInt(prompt('3 .判断三角形的类型\n请输入三角形的第一条边：'));
+      // var b = parseInt(prompt('3. 判断三角形的类型\n请输入三角形的第二条边：'));
+      // var c = parseInt(prompt('3. 判断三角形的类型\n请输入三角形的第三条边：'));
+      // if (a > 0 && b > 0 && c > 0) {
+      //   //判断三角形的三条边都是正数
+      //   if (a + b > c && b + c > a && c + a > b) {
+      //     //判断三角形的两边之和大于第三边
+      //     if (
+      //       a * a + b * b < c * c ||
+      //       a * a + c * c < b * b ||
+      //       b * b + c * c < a * a
+      //     ) {
+      //       document.write('钝角三角形');
+      //     } else if (
+      //       a * a + b * b == c * c ||
+      //       a * a + c * c == b * b ||
+      //       b * b + c * c == a * a
+      //     ) {
+      //       document.write('直角三角形');
+      //     } else if (
+      //       a * a + b * b > c * c ||
+      //       a * a + c * c > b * b ||
+      //       b * b + c * c > a * a
+      //     ) {
+      //       document.write('锐角三角形');
+      //     }
+      //   } else {
+      //     document.write('不是三角形，请重新输入边长');
+      //   }
+      // } else {
+      //   document.write('请输入大于0的整数');
+      // }
+      // // 4 按年/月/日的顺序输入一个任意日期，在页面输出：这是这一年的第几天
+
+      // // 如：2016年1月2日 是2016年的第2天，而2016年12月31日则是2016年的第366天（因为闰年会多一天）
+      // var y = parseInt(prompt('输入年份：'));
+      // var m = parseInt(prompt('输入月份：'));
+      // var d = parseInt(prompt('输入日份：'));
+      // var n = 0;
+      var qiutianshu = function (y, m, d) {
+        var num = 0;
+        switch (m) {
+          case 1:
+            num = d;
+            break;
+          case 2:
+            num = 31 + d;
+            break;
+          case 3:
+            num = 31 + 28 + d;
+            break;
+          case 4:
+            num = 31 + 28 + 31 + d;
+            break;
+          case 5:
+            num = 31 + 28 + 31 + 30 + d;
+            break;
+          case 6:
+            num = 31 + 28 + 31 + 30 + 31 + d;
+            break;
+          case 7:
+            num = 31 + 28 + 31 + 30 + 31 + 30 + d;
+            break;
+          case 8:
+            num = 31 + 28 + 31 + 30 + 31 + 30 + 31 + d;
+            break;
+          case 9:
+            num = 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + d;
+            break;
+          case 10:
+            num = 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + d;
+            break;
+          case 11:
+            num = 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + d;
+            break;
+          case 12:
+            num = 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + d;
+          default:
+            console.log('输入的年月日格式错误！！');
+            break;
+        }
+        if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0) {
+          // 闰年
+          if (m > 2) {
+            num++;
+          }
+        } else {
+          // 平年
+          return num;
+        }
+        return num;
+      };
+      // n = qiutianshu(y, m, d);
+      // console.log('这是' + y + '年的第' + n + '天');
+
+      //5  输入两个日期  算这两个日期之间有多少天，并且考虑闰年。
+      var y = parseInt(prompt('输入第一个日期的年份：'));
+      var m = parseInt(prompt('输入第一个日期的月份：'));
+      var d = parseInt(prompt('输入第一个日期的日份：'));
+      var y2 = parseInt(prompt('输入第二个日期的年份：'));
+      var m2 = parseInt(prompt('输入第二个日期的月份：'));
+      var d2 = parseInt(prompt('输入第二个日期的日份：'));
+      var sum = 0;
+      var flag = 0;
+      var num1 = 0;
+      var num2 = 0;
+      // 先输入的日期靠前
+      if (y2 >= y) {
+        for (var i = y2 - 1; i > y; i--) {
+          if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
+            flag = 366;
+          } else {
+            flag = 365;
+          }
+          sum += flag;
+        }
+        if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0) {
+          num1 = 366 - qiutianshu(y, m, d);
+        } else {
+          num1 = 365 - qiutianshu(y, m, d);
+        }
+
+        num2 = qiutianshu(y2, m2, d2);
+        sum = sum + num1 + num2;
+      }
+      // 先输入的日期靠后
+      else {
+        for (var i = y - 1; i > y2; i--) {
+          if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
+            flag = 366;
+          } else {
+            flag = 365;
+          }
+          sum += flag;
+        }
+        if ((y2 % 4 == 0 && y2 % 100 != 0) || y2 % 400 == 0) {
+          num1 = 366 - qiutianshu(y2, m2, d2);
+        } else {
+          num1 = 365 - qiutianshu(y2, m2, d2);
+        }
+
+        num2 = qiutianshu(y, m, d);
+        sum = sum + num1 + num2;
+      }
+      console.log('两个日期之间相距' + sum + 1 + '天');
+    </script>
+  </body>
+</html>

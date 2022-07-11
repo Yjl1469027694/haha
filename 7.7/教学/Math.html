@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math</title>
+  </head>
+  <body>
+    <script>
+      // 1 随机数 随机数*（大数-小数）- 小数
+      // Math.random本身为（0~1）的小数
+      var num1 = parseInt(Math.random()*(999-99)+99);//获取包含上限，但不包含下限的随机数。
+      var num1 = parseInt(Math.random()*(999-99+1)+99);//获取上下限均包含的随机数。
+      var num2=52.56
+      console.log(num2);
+      console.log(Math.round(num2));//四舍五入
+      console.log(Math.ceil(num2));//上取整
+      console.log(Math.floor(num2));//向下取整
+      var num3 =2;
+      console.log((Math.pow(num2,3)));//3次方
+      console.log(Math.abs(num3));//绝对值
+      console.log(Math.sqrt(num3));//开平方
+      console.log(num1);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var temp = 0;
+      for (var i = 2; 1; i++) {
+        temp = i;
+        for (var j = 1; j <= 9; j++) {
+          temp = temp / 2 - 1;
+        }
+        if (temp == 1) {
+          console.log('该数是：'+i);
+          break;
+        }
+        console.log(i - 1);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //优先级  逻辑非 ! >算术 > 逻辑与 &&、逻辑或 || > 赋值=
+      // 隐式转换 - / *
+      // 1 操作符 typeof
+      console.log(typeof null);
+      console.log(typeof undefined);
+      // 2 算数运算符 +-*/%
+      10 % 2; /* 10对2取余的结果 */
+      console.log(10 - '20'); //-10 -*/%会将这些字符串强制转换为数字类型Number
+      console.log(10 - '1a3'); //NaN的数据类型也为Number
+      console.log(10 - undefined); //NaN
+      // 3 比较运算符 > < = ==(数值相等) ===(全等，值相等且数据类型相等) != !==(===的反义)
+      console.log(1 == '1'); //true
+      console.log(1 == true); //true
+      // 4 逻辑运算符 &&并且 ||或者 !取反
+
+      console.log(!'abc'); //false
+      // 5 ++ -- 一元运算符
+      var a = 1;
+      // var sum =a++;运算符在a后面 先将a的值赋值给结果 然后执行++
+      console.log('sum:' + sum);
+      //  var sum=++a;运算符在a前面 先++ 后赋值给结果
+      console.log('sum:' + sum);
+      // 6 二元运算符
+      // 7 三元运算符（ 比较结果 ？ 表达式一 ： 表达式二）
+      var ah;
+      ah == 20 ? console.log('a是20') : console.log('a不是20');
+      // 8 赋值运算符 += *= -= /= =
+      var sum = 0;
+
+      for (var i = 1; i <= 100; i++) {
+        sum += i;
+      }
+      console.log(sum);
+    </script>
+  </body>
+</html>

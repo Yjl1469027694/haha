@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组</title>
+  </head>
+  <body>
+    <script>
+      // 连续的存储空间
+      // 两种创建方式
+      var arr1 = []; //字面量
+      var arr2 = new Array(); //新建一个对象，构造器创建
+      console.log(arr1);
+      arr1.push(123, 456);
+      arr2.push(234);
+      console.log(arr1);
+      console.log(arr1[1]);
+      var arr3 = ['halo', 123, undefined, null, false, true];
+      var i = 0;
+      while (i < arr3.length) {
+        console.log(arr3[i]);
+        i++;
+      }
+      var arr4 = new Array('str', '123', 123);
+      var arr5 = new Array(9); //空数组，大小为9
+      console.log(arr4);
+      console.log(arr5);
+      // 数组的方法 增 删 改
+      // 增 push
+      // 删 pop(最后) splice(起始下标，删除的项数) shift(开始)
+      // 改 splice(起始下标，删除的项数,插入的数据) 删除的项数为0则代表插入
+      arr4.pop(); //删除最后一个
+      console.log('arr4:' + arr4);
+      arr3.shift(); //删除第一个
+      console.log(arr3);
+      arr3.splice(2, 1); //删除指定项
+      console.log(arr3);
+      arr3.splice(2, 0, '一个大保健', '两个大保健');
+      console.log(arr3);
+      arr3.splice(4, 2, '一个大保健', '两个大保健');
+      console.log(arr3);
+      // 1 数组的合并
+      var arr5 = [123, '234', true];
+      var arr6 = [false, 'hahaha'];
+      // 2 concat方法不会影响原来的数组
+      // 生产一个新的数组
+      var arr7 = arr5.concat(arr6);
+      console.log(arr7);
+      // 3 数组的抽取截取 slice
+      // 生成新的一个数组 不会影响原来的数组
+      var arr8 = ['12', 'wtf', false, undefined, 1244124];
+      console.log(arr8);
+      var arr9 = arr8.slice(2, 5);
+      console.log(arr9);
+      // 4 数组的串联 join
+      // 把数组的每一项并且把它们连接成一个字符串
+      var arr10 = ['1', '2', 3, '4', '5'];
+      var newArr = arr10.join('*');
+      console.log(newArr);
+      // 5 数组的反转
+      var arr11 = [1, 2, 3];
+      var arr12 = arr11.reverse();
+      console.log(arr11);
+      console.log(arr12);
+      // 6 清空数组的方法
+      var arr13 = [1, 2, 3, 4, 5, 6, 7, 8];
+      // arr13=[];
+      // arr13.length = 0;
+    </script>
+  </body>
+</html>
