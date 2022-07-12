@@ -8,45 +8,127 @@
   </head>
   <body>
     <script>
-      var account = 1000;
-      var i;
-      for (i = 0; i < 3; i++) {
-        var zhangHao = prompt('请输入你的账号：');
-        var password = prompt('请输入你的密码：');
-        if (zhangHao != 'user') {
+      var money = 1000;
+      var obj1 = {
+        kahao: 110119,
+        user: '张大力',
+        pwd: 123456,
+        id: 123456,
+        money: 5000000000000
+      };
+      var obj2 = {
+        kahao: 114411,
+        user: '张小力',
+        pwd: 123456,
+        id: 321456,
+        money: 51000000000000
+      };
+      var obj3 = {
+        kahao: 147258,
+        user: '张中力',
+        pwd: 123456,
+        id: 654321,
+        money: 500
+      };
+      var objList = [obj1, obj2, obj3];
+
+      for (var i = 0; i < 3; i++) {
+        let zhangHao = prompt('请输入你的账号：');
+        let password = prompt('请输入你的密码：');
+        let user = Login(zhangHao, password);
+        if (!user.state) {
           alert('账号错误,请重新输入账号、密码：');
-        } else if (password != '123456') {
-          alert('密码错误，请重新输入账号、密码');
+          if (i == 2) {
+            alert('你已经连续输错3次，账号已锁定,亲联系柜台人员办理解锁服务');
+          }
         } else {
           console.log('登陆成功');
-          test();
+          test(user);
           break;
         }
       }
-      if (i == 3) {
-        alert('你已经连续输错3次，账号已锁定,亲联系柜台人员办理解锁服务');
+      function Login(zhanghao, pwd) {
+        for (let i = 0; i < objList.length; i++) {
+          if (zhanghao == objList[i].kahao && pwd == objList[i].pwd) {
+            return {
+              state: true,
+              kahao: objList[i].kahao,
+              num: i
+            };
+          }
+        }
+        return { state: false };
       }
 
-      function test() {
+      function test(user) {
         var num = parseInt(
           prompt('请操作 1.取款，2.存款，3.转账，4.查询余额，5.退出系统')
         );
         if (num == 1) {
           let userMoney = parseInt(prompt('请输入你想取款的金额'));
-          if (account < userMoney) {
+          if (objList[user.num].money < userMoney) {
             alert('请认真填写，不能骚整');
-            test();
+            test(user);
           } else {
-            account -= userMoney;
+            objList[user.num].money -= userMoney;
             alert('取款成功');
-            test();
+            test(user);
           }
+        } else if (num == 2) {
+          // 存钱
+          let joinMoney = Math.abs(prompt('请输入要存入的钱的金额：'));
+          if (cunqian(objList[user.num].kahao, joinMoney)) {
+            alert('存入' + joinMoney + '成功');
+          } else {
+            alert('未找到该账户，请重新操作');
+          }
+          test(user);
+        } else if (num == 3) {
+          // 转账
+          let zhuanMoney = Math.abs(prompt('请输入要转出的金额：'));
+          while (zhuanMoney > objList[user.num].money) {
+            zhuanMoney = prompt(
+              '转账金额大于余额,请重新输入要转出的金额或者输入#退出：'
+            );
+            if (zhuanMoney === '#') break;
+          }
+          if (zhuanMoney <= objList[user.num].money) {
+            let z = parseInt(prompt('请输入你要转账的账号：'));
+            if (zhuanzhang(zhuanMoney, z)) {
+              objList[user.num].money -= zhuanMoney;
+              alert('转账' + zhuanMoney + '成功');
+            } else {
+              alert('未找到该账户，请重新操作');
+            }
+          }
+          test(user);
         } else if (num == 4) {
-          alert('该用户的余额为' + account + '元');
-          test();
+          alert('该用户的余额为' + objList[user.num].money + '元');
+          test(user);
         } else if (num == 5) {
           alert('欢迎光临，期待下次相见');
         }
+      }
+      // 存钱
+      function cunqian(zhangHao, money) {
+        for (var i = 0; i < objList.length; i++) {
+          if (zhangHao == objList[i].kahao) {
+            objList[i].money += money;
+            return true;
+          }
+          return false;
+        }
+      }
+      // 转账
+      function zhuanzhang(zhuanmoney, z) {
+        for (var j = 0; j < objList.length; j++) {
+          if (z == objList[j].kahao) {
+            objList[j].money += zhuanmoney;
+            console.log(objList[i].money);
+            return true;
+          }
+        }
+        return false;
       }
     </script>
   </body>
